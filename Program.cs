@@ -14,16 +14,17 @@ namespace Lab4
 
             while (repeat == true)
             {
-                Console.WriteLine("Please enter an integer between 1 and 10:");
-                int Input = int.Parse(Console.ReadLine());
-                int Solution = Input;
+                Console.WriteLine("Please enter an integer between 1 and 20:");
+                long Input = long.Parse(Console.ReadLine());
+                long Solution = Input;
 
-                for (int i = 1; i < Input; i++)
-                {
-                    Solution *= (Input - i);
-                }
+                // **** The For Loop Version is commented out
+                //for (int i = 1; i < Input; i++)
+                //{
+                //    Solution *= (Input - i);
+                //}
 
-                Console.WriteLine(Solution);
+                Console.WriteLine($"The factorial of {Input} is {Factorial(Input)}!");
 
                 Console.WriteLine("Would you like to try again? (y/n)");
                 string again = Console.ReadLine();
@@ -34,13 +35,28 @@ namespace Lab4
                     Console.Clear();
                     Console.WriteLine("Goodbye!!!");
                     break;
-            
                 }
 
                 Console.Clear();
 
-
             }
+        }
+
+        public static long Factorial(long Input)
+        {
+            //while (Input - 1 > 0)
+            //{
+            //    return Input *= (Factorial(Input - 1));
+            //}
+            //return Input;
+
+            if (Input - 1 == 0)
+            {
+                return Input;
+            }
+
+            return Input *= (Factorial(Input - 1));
+
         }
     }
 }
