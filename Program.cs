@@ -10,17 +10,37 @@ namespace Lab4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter an integer between 1 and 10:");
-            int Input = int.Parse(Console.ReadLine());
-            int Solution = Input;
+            bool repeat = true;
 
-            for (int i = 1; i < Input; i++)
+            while (repeat == true)
             {
-                Solution *= (Input-i);
-            }
+                Console.WriteLine("Please enter an integer between 1 and 10:");
+                int Input = int.Parse(Console.ReadLine());
+                int Solution = Input;
 
-            Console.WriteLine(Solution);
+                for (int i = 1; i < Input; i++)
+                {
+                    Solution *= (Input - i);
+                }
+
+                Console.WriteLine(Solution);
+
+                Console.WriteLine("Would you like to try again? (y/n)");
+                string again = Console.ReadLine();
+
+                if (again != "y" && again != "Y")
+                {
+                    repeat = false;
+                    Console.Clear();
+                    Console.WriteLine("Goodbye!!!");
+                    break;
             
+                }
+
+                Console.Clear();
+
+
+            }
         }
     }
 }
